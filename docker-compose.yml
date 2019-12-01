@@ -1,0 +1,27 @@
+version: "3"
+services:
+    nginx:
+        container_name: "mb-nginx"
+        build: ./dockerfile/nginx/.
+        ports:
+          - 80:80
+        depends_on:
+          - morningbees-api
+    morningbees-api:
+        container_name: "mb-spring-boot"
+        build: ./dockerfile/morningbees-api/.
+        volumes:
+          - .:/logs
+        expose:
+          - 8080
+        depends_on:
+          - database
+    database:
+        container_name: "mb-mysql"
+        image: mysql:5.7
+        environment:
+          MYSQL_DATABASE: morningbees
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_ROOT_HOST: '%'
+        ports:
+          - 3307:3306
