@@ -1,0 +1,1 @@
+aws_host          ansible_ssh_private_key_file=/Users/minkyojung/aws_key/gofka.pem ansible_user=ubuntu ansible_host=54.180.24.80 ansible_python_interpreter=/usr/bin/python3
