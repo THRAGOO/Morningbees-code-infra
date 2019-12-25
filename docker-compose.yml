@@ -9,6 +9,11 @@ services:
           - morningbees-api
     morningbees-api:
         container_name: "mb-spring-boot"
+        environment:
+          - MORNINGBEES_PRD_DB_URL=${MORNINGBEES_PRD_DB_URL}
+          - MORNINGBEES_PRD_DB_USER=${MORNINGBEES_PRD_DB_USER}
+          - MORNINGBEES_PRD_DB_PASSWORD=${MORNINGBEES_PRD_DB_PASSWORD}  
+          - MORNINGBEES_TOKEN_SALT=${MORNINGBEES_TOKEN_SALT}
         build: ./dockerfile/morningbees-api/.
         volumes:
           - .:/logs
