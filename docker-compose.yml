@@ -11,7 +11,7 @@ services:
         container_name: "mb-spring-boot"
         build: ./dockerfile/morningbees-api/.
         volumes:
-          - .:/logs
+          - ./logs/:/logs
         expose:
           - 8080
         depends_on:
