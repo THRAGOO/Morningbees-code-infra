@@ -16,7 +16,7 @@ services:
           - MORNINGBEES_TOKEN_SALT=${MORNINGBEES_TOKEN_SALT}
         build: ./dockerfile/morningbees-api/.
         volumes:
-          - .:/logs
+          - ./logs/:/logs
         expose:
           - 8080
         depends_on:
